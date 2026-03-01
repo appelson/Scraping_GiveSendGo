@@ -1,5 +1,7 @@
+#!/usr/bin/env python3
 # ----------------------- IMPORTING LIBRARIES ---------------------------------
 # Importing libraries
+import re
 import time
 import json
 import os
@@ -7,6 +9,7 @@ import undetected_chromedriver as uc
 from bs4 import BeautifulSoup
 import glob
 import pandas as pd
+from selenium.common.exceptions import SessionNotCreatedException
 
 # ----------------------- DOWNLOADING DATA ------------------------------------
 
@@ -19,9 +22,22 @@ campaign = "rift-connor-emergency-fund"
 # Creating the output folder directory
 os.makedirs(output_folder, exist_ok=True)
 
+
+def _create_chrome_driver(options):
+    """Create Chrome driver, auto-detecting version_main from error if Chrome/ChromeDriver version mismatch."""
+    try:
+        return uc.Chrome(options=options)
+    except SessionNotCreatedException as e:
+        msg = str(e)
+        match = re.search(r"Current browser version is (\d+)\.\d+\.\d+", msg)
+        if match:
+            return uc.Chrome(options=uc.ChromeOptions(), version_main=int(match.group(1)))
+        raise
+
+
 # Initializing the chrome driver
 options = uc.ChromeOptions()
-driver = uc.Chrome(options=options)
+driver = _create_chrome_driver(options)
 
 # Definign donations list
 all_donations = []
@@ -58,8 +74,8 @@ try:
         try:
             data = json.loads(raw_json)
             
-            # Getting donations
-            donations = data.get("donations", [])
+            # Getting donations (API returns under returnData.donations)
+            donations = data.get("returnData", {}).get("donations", [])
             
             # Adding to an all donations list
             all_donations.extend(donations)
