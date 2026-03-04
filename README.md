@@ -13,6 +13,13 @@ This is a Python toolkit for collecting and analyzing publicly available data fr
 - **Research:** Analyzing donor networks, comment sentiment, and fundraising patterns over time
 - **Platform-wide analysis:** Using the campaign directory scraper to identify trends across all of GiveSendGo
 
+## Overview
+
+- As of March 4th, 2026, there are 6069 active campaigns on GiveSendGo.
+- Out of campaigns raising USD, these campaigns have raised a total of $74,353,764.
+- The most common campaign is Medical, followed by Mission, Emergency, Family, and Legal.
+- The most common recipient states include Texas, Florida, and California.
+
 ## Scripts
 
 ### `campaign_scraper/script.py`
