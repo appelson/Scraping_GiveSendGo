@@ -4,7 +4,7 @@ A Python toolkit for collecting and analyzing publicly available data from [Give
 
 **Notes**: Everything collected is publicly visible on GiveSendGo without an account. No private data is accessed.
 
-![example](image.png)
+![example](photo.png)
 ---
 
 ## Scripts
