@@ -8,7 +8,7 @@ import glob
 import pandas as pd
 
 # ----------------------- DOWNLOADING DATA ------------------------------------
-output_folder = "sitemaps_data6"
+output_folder = "results"
 os.makedirs(output_folder, exist_ok=True)
 
 options = uc.ChromeOptions()
