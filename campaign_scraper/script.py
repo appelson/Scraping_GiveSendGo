@@ -14,7 +14,7 @@ from selenium.common.exceptions import SessionNotCreatedException
 # ----------------------- DOWNLOADING DATA ------------------------------------
 
 # Defining the output folder
-output_folder = "donations_data"
+output_folder = "results"
 
 # Campaign URL from "https://www.givesendgo.com/rift-connor-emergency-fund"
 campaign = "rift-connor-emergency-fund"
