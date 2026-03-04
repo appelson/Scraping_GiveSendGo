@@ -1,4 +1,4 @@
-# GiveSendGo Scraper
+# GiveScrapeGo: A GiveSendGo Scraper
 
 A Python toolkit for collecting and analyzing publicly available data from [GiveSendGo](https://givesendgo.com), including individual campaign donations and the full site-wide campaign directory. Built for accountability journalism, civic research, and transparency work.
 
