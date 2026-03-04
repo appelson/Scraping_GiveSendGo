@@ -7,6 +7,12 @@ A Python toolkit for collecting and analyzing publicly available data from [Give
 ![example](photo.png)
 ---
 
+## Use Cases
+
+- **Accountability journalism:** Tracking who funds politically motivated campaigns
+- **Research:** Analyzing donor networks, comment sentiment, and fundraising patterns over time
+- **Platform-wide analysis:** Using the campaign directory scraper to identify trends across all of GiveSendGo
+
 ## Scripts
 
 ### `campaign_scraper/script.py`
@@ -33,32 +39,3 @@ Scrapes GiveSendGo's full campaign directory by paginating through the `/api/v2/
 │   └── script.py
 └── README.md
 ```
-
----
-
-## Usage
-
-### Scrape donations from a specific campaign
-
-1. Find your campaign's slug from its GiveSendGo URL  
-2. Set the `campaign` variable in `scraper.py`:
-3. Optionally adjust the page limit (default `range(1, 140)`). The scraper stops automatically when it hits an empty page, so setting the ceiling higher than needed is safe.
-4. Run:
-   ```bash
-   python campaign_scraper/script.py
-   ```
-### Scrape the full campaign directory
-
-```bash
-python all_campaigns/script.py
-```
-
-No configuration needed. The script reads the total page count from the first API response and handles pagination automatically.
-
----
-
-## Use Cases
-
-- **Accountability journalism:** Tracking who funds politically motivated campaigns
-- **Research:** Analyzing donor networks, comment sentiment, and fundraising patterns over time
-- **Platform-wide analysis:** Using the campaign directory scraper to identify trends across all of GiveSendGo
